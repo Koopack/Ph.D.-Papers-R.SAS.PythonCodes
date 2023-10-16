@@ -1,0 +1,41 @@
+<!-- R Commander Markdown Template -->
+
+Replace with Main Title
+=======================
+
+### Your Name
+
+### `r as.character(Sys.Date())`
+
+```{r echo=FALSE}
+# include this code chunk as-is to set options
+knitr::opts_chunk$set(comment=NA, prompt=TRUE, out.width=750, fig.height=8, fig.width=8)
+library(Rcmdr)
+library(car)
+library(RcmdrMisc)
+```
+
+
+```{r echo=FALSE}
+# include this code chunk as-is to enable 3D graphs
+library(rgl)
+knitr::knit_hooks$set(webgl = hook_webgl)
+```
+
+```{r}
+Tapply(YII ~ Genotypes + TreatEnv + Year, mean, na.action=na.omit, 
+  data=Blues_17_18_article1_2) # means
+```
+
+
+```{r}
+Tapply(YII ~ Genotypes + TreatEnv + Year, sd, na.action=na.omit, 
+  data=Blues_17_18_article1_2) # std. deviations
+```
+
+
+```{r}
+xtabs(~ Genotypes + TreatEnv + Year, data=Blues_17_18_article1_2) # counts
+```
+
+
